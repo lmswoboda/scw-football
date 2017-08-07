@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${schedules} and ${schedules.size()}">no schedule :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+    </tr>
+
+    <tr th:each="schedule : ${schedules}">
+        <td th:text="${schedule.name}"></td>
+        <!--<td th:text="${cheese.description}"></td>-->
+        <!--<td th:text="${cheese.category.name}"></td>-->
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/schedule/add">Add</a> |
+    <!--<a href="/schedule/remove">Remove</a>-->
+</nav>
+
+
+</body>
+</html>

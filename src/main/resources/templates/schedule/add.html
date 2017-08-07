@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${schedule}">
+    <div class="form-group">
+        <label th:for="season">Season</label>
+        <input class="form-control" th:field="*{season}" />
+        <span th:errors="*{season}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="week">Week</label>
+        <input class="form-control" th:field="*{week}" />
+        <span th:errors="*{week}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="homeTeam">Home Team</label>
+        <input class="form-control" th:field="*{homeTeam}" />
+        <span th:errors="*{homeTeam}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="homeTeamScore">Home Team Score</label>
+        <input class="form-control" th:field="*{homeTeamScore}" />
+        <span th:errors="*{homeTeamScore}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="awayTeam">Visiting Team</label>
+        <input class="form-control" th:field="*{awayTeam}" />
+        <span th:errors="*{awayTeam}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="awayTeamScore">Home Team Score</label>
+        <input class="form-control" th:field="*{awayTeamScore}" />
+        <span th:errors="*{awayTeamScore}" class="error"></span>
+    </div>
+
+
+    <input type="submit" value="Add Schedule" />
+</form>
+
+</body>
+</html>
