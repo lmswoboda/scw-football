@@ -52,7 +52,6 @@ public class ScheduleController {
 
         scheduleDao.save(newSchedule);
 
-        scheduleDao.save(newSchedule);
         return "redirect:";
     }
 

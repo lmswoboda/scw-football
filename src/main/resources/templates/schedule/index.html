@@ -14,13 +14,18 @@
 <table class="table">
 
     <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Category</th>
+        <th>Season</th>
+        <th>Week</th>
+        <th>Home</th>
+        <th>Home Score</th>
+        <th>Visitor</th>
+        <th>Visitor Score</th>
+
+
     </tr>
 
     <tr th:each="schedule : ${schedules}">
-        <td th:text="${schedule.name}"></td>
+        <td th:text="${schedule.season}"></td>
         <!--<td th:text="${cheese.description}"></td>-->
         <!--<td th:text="${cheese.category.name}"></td>-->
     </tr>

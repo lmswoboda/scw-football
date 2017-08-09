@@ -16,30 +16,21 @@ public class Schedule {
     private int id;
 
     @NotNull
-    @Size(min=3, max=15)
     private String season;
 
-    @NotNull
-    @Size(min=1, max=2)
-    private int week;
+    private String week;
 
     @NotNull
-    @Size(min=3, max=30)
     private String homeTeam;
 
-    @NotNull
-    @Size(min=1, max=3)
     private int homeTeamScore;
 
     @NotNull
-    @Size(min=3, max=30)
     private String awayTeam;
 
-    @NotNull
-    @Size(min=1, max=3)
     private int awayTeamScore;
 
-    public Schedule(String season, int week, String homeTeam, int homeTeamScore,
+    public Schedule(String season, String week, String homeTeam, int homeTeamScore,
                     String awayTeam, int awayTeamScore) {
         this.season = season;
         this.week = week;
@@ -102,11 +93,11 @@ public class Schedule {
         this.awayTeamScore = awayTeamScore;
     }
 
-    public int getWeek() {
+    public String getWeek() {
         return week;
     }
 
-    public void setWeek(int week) {
+    public void setWeek(String week) {
         this.week = week;
     }
 
