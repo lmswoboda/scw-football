@@ -15,9 +15,6 @@ public class Schedule {
     @GeneratedValue
     private int id;
 
-    @NotNull
-    private String season;
-
     private String week;
 
     @NotNull
@@ -30,9 +27,8 @@ public class Schedule {
 
     private int awayTeamScore;
 
-    public Schedule(String season, String week, String homeTeam, int homeTeamScore,
+    public Schedule(String week, String homeTeam, int homeTeamScore,
                     String awayTeam, int awayTeamScore) {
-        this.season = season;
         this.week = week;
         this.homeTeam = homeTeam;
         this.homeTeamScore = homeTeamScore;
@@ -40,9 +36,9 @@ public class Schedule {
         this.awayTeamScore = awayTeamScore;
     }
 
-//    public Schedule(String season, int week, String homeTeam,
+//    public Schedule(int week, String homeTeam,
 //                    String awayTeam) {
-//        this(season, week, homeTeam, awayTeam);
+//        this(week, homeTeam, awayTeam);
 //    }
 
     public Schedule() {
@@ -51,11 +47,6 @@ public class Schedule {
     public int getId() {
         return id;
     }
-
-    public String getSeason() {
-        return season;
-    }
-
 
     public String getHomeTeam() {
         return homeTeam;
@@ -71,10 +62,6 @@ public class Schedule {
 
     public int getAwayTeamScore() {
         return awayTeamScore;
-    }
-
-    public void setSeason(String season) {
-        this.season = season;
     }
 
     public void setHomeTeam(String homeTeam) {

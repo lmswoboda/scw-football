@@ -1,7 +1,9 @@
 package org.launchcode.controllers;
 
 import org.launchcode.models.Schedule;
+import org.launchcode.models.Season;
 import org.launchcode.models.data.ScheduleDao;
+import org.launchcode.models.data.SeasonDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +11,10 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+
 
 /**
  * Created by lynnstrauss on 8/4/17.
@@ -28,7 +32,7 @@ public class ScheduleController {
     @RequestMapping(value = "")
     public String schedule(Model model){
         model.addAttribute("schedules", scheduleDao.findAll());
-        model.addAttribute("title", "SCW Football Schedules");
+        model.addAttribute("title", "SCW Football Schedule");
         return "schedule/index";
     }
 
@@ -44,7 +48,6 @@ public class ScheduleController {
                                        Errors errors,
                                        Model model) {
 
-
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Schedule");
             return "schedule/add";
@@ -55,6 +58,22 @@ public class ScheduleController {
         return "redirect:";
     }
 
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveScheduleForm(Model model) {
+        model.addAttribute("schedules", scheduleDao.findAll());
+        model.addAttribute("title", "Remove Schedule");
+        return "schedule/remove";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveScheduleForm(@RequestParam int[] scheduleIds) {
+
+        for (int scheduleId : scheduleIds) {
+            scheduleDao.delete(scheduleId);
+        }
+
+        return "redirect:";
+    }
 
 
 

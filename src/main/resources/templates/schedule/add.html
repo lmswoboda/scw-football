@@ -8,11 +8,6 @@
 
 <form method="post" style="max-width:600px;" th:object="${schedule}">
     <div class="form-group">
-        <label th:for="season">Season</label>
-        <input class="form-control" th:field="*{season}" />
-        <span th:errors="*{season}" class="error"></span>
-    </div>
-    <div class="form-group">
         <label th:for="week">Week</label>
         <input class="form-control" th:field="*{week}" />
         <span th:errors="*{week}" class="error"></span>
@@ -37,7 +32,7 @@
     </div>
 
     <div class="form-group">
-        <label th:for="awayTeamScore">Home Team Score</label>
+        <label th:for="awayTeamScore">Visiting Team Score</label>
         <input class="form-control" th:field="*{awayTeamScore}" />
         <span th:errors="*{awayTeamScore}" class="error"></span>
     </div>
