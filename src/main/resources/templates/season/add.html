@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${season}">
+    <div class="form-group">
+        <label th:for="year">Year</label>
+        <input class="form-control" th:field="*{year}" />
+        <span th:errors="*{year}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="wins">Wins</label>
+        <input class="form-control" th:field="*{wins}" />
+        <span th:errors="*{wins}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="losses">Losses</label>
+        <input class="form-control" th:field="*{losses}" />
+        <span th:errors="*{losses}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="notes">Notes</label>
+        <input class="form-control" th:field="*{notes}" />
+        <span th:errors="*{notes}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Season" />
+</form>
+
+</body>
+</html>

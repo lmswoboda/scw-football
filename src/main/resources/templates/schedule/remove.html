@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+    <div th:each="schedule : ${schedules}" class="checkbox">
+        <input type="checkbox" name="scheduleIds" th:value="${schedule.id}" th:id="${schedule.id}"/>
+        <label th:for="${schedule.id}" th:text="${schedule.week}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Schedule" />
+
+</form>
+
+</body>
+</html>
+

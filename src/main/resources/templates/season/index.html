@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${seasons} and ${seasons.size()}">no season :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Year</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Notes</th>
+
+    </tr>
+
+    <tr th:each="season : ${seasons}">
+        <td th:text="${season.year}"></td>
+        <td th:text="${season.wins}"></td>
+        <td th:text="${season.losses}"></td>
+        <td th:text="${season.notes}"></td>
+
+
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/season/add">Add</a> |
+    <a href="/season/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>
