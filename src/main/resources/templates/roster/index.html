@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${rosters} and ${rosters.size()}">no roster :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Number</th>
+        <th>Player</th>
+        <th>Class</th>
+        <th>Feet</th>
+        <th>Inches</th>
+        <th>Weight</th>
+        <th>Offense</th>
+        <th>Defensive</th>
+        <th>Special Teams</th>
+        <th>Note</th>
+
+    </tr>
+
+
+    <tr th:each="roster : ${rosters}">
+        <td th:text="${roster.number}"></td>
+        <td th:text="${roster.player}"></td>
+        <td th:text="${roster.playerClass}"></td>
+        <td th:text="${roster.feet}"></td>
+        <td th:text="${roster.inches}"></td>
+        <td th:text="${roster.weight}"></td>
+        <td th:text="${roster.offensivePosition}"></td>
+        <td th:text="${roster.defensivePosition}"></td>
+        <td th:text="${roster.specialTeams}"></td>
+        <td th:text="${roster.playerNote}"></td>
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/roster/add">Add</a> |
+    <a href="/roster/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+    <div th:each="roster : ${rosters}" class="checkbox">
+        <input type="checkbox" name="rosterIds" th:value="${roster.id}" th:id="${roster.id}"/>
+        <label th:for="${roster.id}" th:text="${roster.week}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Roster" />
+
+</form>
+
+</body>
+</html>

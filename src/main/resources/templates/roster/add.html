@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${roster}">
+    <div class="form-group">
+        <label th:for="player">Player</label>
+        <input class="form-control" th:field="*{player}" />
+        <span th:errors="*{player}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="playerClass">Player Class</label>
+        <input class="form-control" th:field="*{playerClass}" />
+        <span th:errors="*{playerClass}" class="error"></span>
+    </div>
+
+
+    <!--<div class="form-group">-->
+        <!--<label th:for="ClassManYear">Year</label>-->
+        <!--<input class="form-control" th:field="*{ClassManYear}" />-->
+        <!--<span th:errors="*{ClassManYear}" class="error"></span>-->
+    <!--</div>-->
+
+    <div class="form-group">
+        <label th:for="number">Number</label>
+        <input class="form-control" th:field="*{number}" />
+        <span th:errors="*{number}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="feet">Feet</label>
+        <input class="form-control" th:field="*{feet}" />
+        <span th:errors="*{feet}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="inches">Inches</label>
+        <input class="form-control" th:field="*{inches}" />
+        <span th:errors="*{inches}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="weight">Weight</label>
+        <input class="form-control" th:field="*{weight}" />
+        <span th:errors="*{weight}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="offensivePosition">Offensive Position</label>
+        <input class="form-control" th:field="*{offensivePosition}" />
+        <span th:errors="*{offensivePosition}" class="error"></span>
+    </div>
+
+    <!--<div class="form-group">-->
+        <!--<label th:for="defensivePosition">Defensive Position</label>-->
+        <!--<input class="form-control" th:field="*{defensivePosition}" />-->
+        <!--<span th:errors="*{defensivePosition}" class="error"></span>-->
+    <!--</div>-->
+
+
+    <!--<div class="form-group">-->
+        <!--<label th:for="specialTeams">Special Teams</label>-->
+        <!--<input class="form-control" th:field="*{specialTeams}" />-->
+        <!--<span th:errors="*{specialTeams}" class="error"></span>-->
+    <!--</div>-->
+
+    <div class="form-group">
+        <label th:for="playerNote">Player Note</label>
+        <input class="form-control" th:field="*{playerNote}" />
+        <span th:errors="*{playerNote}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Player" />
+    </form>
+
+</body>
+</html>

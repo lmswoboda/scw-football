@@ -17,10 +17,15 @@ public class Roster {
     @GeneratedValue
     private int id;
 
-
     @NotNull
     @Size(min=3, max=50, message = "Name must be at least 3 characters and not more than 50.")
     private String player;
+
+    @NotNull
+    @Size(min=1, max=2, message = "Please enter the player's number.")
+    private int number;
+
+    private String playerClass;
 
     public enum ClassManYear{Senior, Junior, Sophmore, Freshman}
 
@@ -32,20 +37,26 @@ public class Roster {
 
     private String offensivePosition;
 
-    private String defensivePostion;
+    private String defensivePosition;
 
     private String specialTeamsPosition;
 
+    private String playerNote;
 
-    public Roster(int id, String player, int feet, int inches, int weight, String offensivePosition, String defensivePostion, String specialTeamsPosition) {
+    public Roster(int id, String player, String playerClass, int number, int feet, int inches, int weight,
+                  String offensivePosition, String defensivePosition,
+                  String specialTeamsPosition, String playerNote) {
         this.id = id;
         this.player = player;
+        this.playerClass = playerClass;
+        this.number = number;
         this.feet = feet;
         this.inches = inches;
         this.weight = weight;
         this.offensivePosition = offensivePosition;
-        this.defensivePostion = defensivePostion;
+        this.defensivePosition = defensivePosition;
         this.specialTeamsPosition = specialTeamsPosition;
+        this.playerNote = playerNote;
     }
 
     public Roster() {
@@ -55,14 +66,28 @@ public class Roster {
         return id;
     }
 
-
-
     public String getPlayer() {
         return player;
     }
 
     public void setPlayer(String player) {
         this.player = player;
+    }
+
+    public String getPlayerClass() {
+        return playerClass;
+    }
+
+    public void setPlayerClass(String playerClass) {
+        this.playerClass = playerClass;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public int getFeet() {
@@ -97,12 +122,12 @@ public class Roster {
         this.offensivePosition = offensivePosition;
     }
 
-    public String getDefensivePostion() {
-        return defensivePostion;
+    public String getDefensivePosition() {
+        return defensivePosition;
     }
 
-    public void setDefensivePostion(String defensivePostion) {
-        this.defensivePostion = defensivePostion;
+    public void setDefensivePosition(String defensivePostion) {
+        this.defensivePosition = defensivePosition;
     }
 
     public String getSpecialTeamsPosition() {
@@ -111,5 +136,13 @@ public class Roster {
 
     public void setSpecialTeamsPosition(String specialTeamsPosition) {
         this.specialTeamsPosition = specialTeamsPosition;
+    }
+
+    public String getPlayerNote() {
+        return playerNote;
+    }
+
+    public void setPlayerNote(String playerNote) {
+        this.playerNote = playerNote;
     }
 }
