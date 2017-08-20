@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${seasons} and ${seasons.size()}">no blogs :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Blog</th>
+
+    </tr>
+
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.body}"></td>
+
+
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/blog/add">Add</a> |
+    <a href="/blog/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>

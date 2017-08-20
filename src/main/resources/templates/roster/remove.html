@@ -7,10 +7,12 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
+<p th:unless="${rosters} and ${rosters.size()}">no players :(</p>
+
 <form method="post">
     <div th:each="roster : ${rosters}" class="checkbox">
         <input type="checkbox" name="rosterIds" th:value="${roster.id}" th:id="${roster.id}"/>
-        <label th:for="${roster.id}" th:text="${roster.week}"></label>
+        <label th:for="${roster.id}" th:text="${roster.player}"></label>
         <br />
     </div>
 

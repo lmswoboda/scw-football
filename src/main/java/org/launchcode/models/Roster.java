@@ -21,8 +21,6 @@ public class Roster {
     @Size(min=3, max=50, message = "Name must be at least 3 characters and not more than 50.")
     private String player;
 
-    @NotNull
-    @Size(min=1, max=2, message = "Please enter the player's number.")
     private int number;
 
     private String playerClass;
@@ -39,23 +37,24 @@ public class Roster {
 
     private String defensivePosition;
 
-    private String specialTeamsPosition;
+    private String specialTeams;
 
     private String playerNote;
 
-    public Roster(int id, String player, String playerClass, int number, int feet, int inches, int weight,
-                  String offensivePosition, String defensivePosition,
-                  String specialTeamsPosition, String playerNote) {
+    public Roster(int id, String player, int number, String playerClass, int feet,
+                  int inches, int weight, String offensivePosition, String defensivePosition,
+                  String specialTeams, String playerNote) {
+
         this.id = id;
         this.player = player;
-        this.playerClass = playerClass;
         this.number = number;
+        this.playerClass = playerClass;
         this.feet = feet;
         this.inches = inches;
         this.weight = weight;
         this.offensivePosition = offensivePosition;
         this.defensivePosition = defensivePosition;
-        this.specialTeamsPosition = specialTeamsPosition;
+        this.specialTeams = specialTeams;
         this.playerNote = playerNote;
     }
 
@@ -126,16 +125,16 @@ public class Roster {
         return defensivePosition;
     }
 
-    public void setDefensivePosition(String defensivePostion) {
+    public void setDefensivePosition(String defensivePosition) {
         this.defensivePosition = defensivePosition;
     }
 
-    public String getSpecialTeamsPosition() {
-        return specialTeamsPosition;
+    public String getSpecialTeams() {
+        return specialTeams;
     }
 
-    public void setSpecialTeamsPosition(String specialTeamsPosition) {
-        this.specialTeamsPosition = specialTeamsPosition;
+    public void setSpecialTeams(String specialTeams) {
+        this.specialTeams = specialTeams;
     }
 
     public String getPlayerNote() {

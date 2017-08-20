@@ -7,6 +7,9 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
+
+<p th:unless="${seasons} and ${seasons.size()}">no seasons :(</p>
+
 <form method="post">
 
     <div th:each="season : ${seasons}" class="checkbox">
