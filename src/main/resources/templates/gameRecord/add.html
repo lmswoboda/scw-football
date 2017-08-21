@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${gameRecord}">
+    <div class="form-group">
+        <label th:for="rushingYards">Rushing Yards</label>
+        <input class="form-control" th:field="*{rushingYards}" />
+        <span th:errors="*{rushingYards}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="passReceptions">Pass Receptions</label>
+        <input class="form-control" th:field="*{passReceptions}" />
+        <span th:errors="*{passReceptions}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Individual Single Game Record" />
+</form>
+
+</body>
+</html>

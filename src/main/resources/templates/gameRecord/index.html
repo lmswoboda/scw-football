@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${gameRecords} and ${gameRecords.size()}">no single game records :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Rushing Yards</th>
+        <th>Pass Receptions</th>
+        <th>Passing Yards</th>
+        <th>Yards Per Carry</th>
+        <th>Receiving Yards</th>
+        <th>Touchdowns</th>
+        <th>Tackles</th>
+        <th>Interceptions</th>
+        <th>Punting Average</th>
+        <th>Quarterback Sacks</th>
+        <th>Fumble Recoveries</th>
+        <th>Field Goals</th>
+
+    </tr>
+
+    <tr th:each="gameRecord : ${gameRecords}">
+        <td th:text="${gameRecord.rushingYards}"></td>
+        <td th:text="${gameRecord.passReceptions}"></td>
+        <td th:text="${gameRecord.passingYards}"></td>
+        <td th:text="${gameRecord.yardsPerCarry}"></td>
+        <td th:text="${gameRecord.receivingYards}"></td>
+        <td th:text="${gameRecord.touchdowns}"></td>
+        <td th:text="${gameRecord.tackles}"></td>
+        <td th:text="${gameRecord.interceptions}"></td>
+        <td th:text="${gameRecord.puntingAverage}"></td>
+        <td th:text="${gameRecord.quarterbackSacks}"></td>
+        <td th:text="${gameRecord.fumbleRecoveries}"></td>
+        <td th:text="${gameRecord.fieldGoals}"></td>
+
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/gameRecord/add">Add</a> |
+    <a href="/gameRecord/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>
