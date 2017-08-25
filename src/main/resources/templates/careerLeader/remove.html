@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<p th:unless="${seasons} and ${seasons.size()}">no leaders :(</p>
+
+<form method="post">
+
+    <div th:each="careerLeader : ${careerLeaders}" class="checkbox">
+        <input type="checkbox" name="careerLeaderIds" th:value="${careerLeader.id}" th:id="${careerLeader.id}"/>
+        <label th:for="${careerLeader.id}" th:text="${careerLeader.id}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Career Leader" />
+</form>
+
+</body>
+</html>

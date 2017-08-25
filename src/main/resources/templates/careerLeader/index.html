@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${careerLeaders} and ${careerLeaders.size()}">no single game records :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Rushing Yards</th>
+        <th>Pass Receptions</th>
+        <th>Passing Yards</th>
+        <th>Yards Per Carry</th>
+        <th>Receiving Yards</th>
+        <th>Touchdowns</th>
+        <th>Tackles</th>
+        <th>Interceptions</th>
+        <th>Punting Average</th>
+        <th>Quarterback Sacks</th>
+        <th>Fumble Recoveries</th>
+        <th>Field Goals</th>
+
+    </tr>
+
+    <tr th:each=" careerLeader: ${careerLeaders}">
+        <td th:text="${careerLeader.rushingYards}"></td>
+        <td th:text="${careerLeader.passReceptions}"></td>
+        <td th:text="${careerLeader.passingYards}"></td>
+        <td th:text="${careerLeader.yardsPerCarry}"></td>
+        <td th:text="${careerLeader.receivingYards}"></td>
+        <td th:text="${careerLeader.touchdowns}"></td>
+        <td th:text="${careerLeader.tackles}"></td>
+        <td th:text="${careerLeader.interceptions}"></td>
+        <td th:text="${careerLeader.puntingAverage}"></td>
+        <td th:text="${careerLeader.quarterbackSacks}"></td>
+        <td th:text="${careerLeader.fumbleRecoveries}"></td>
+        <td th:text="${careerLeader.fieldGoals}"></td>
+
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/careerLeader/add">Add</a> |
+    <a href="/careerLeader/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>

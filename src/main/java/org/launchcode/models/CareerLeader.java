@@ -11,7 +11,7 @@ import java.util.List;
  * Created by lynnstrauss on 8/21/17.
  */
 @Entity
-public class GameRecord {
+public class CareerLeader {
 
     @Id
     @GeneratedValue
@@ -41,10 +41,10 @@ public class GameRecord {
 
     private String fieldGoals;
 
-    public GameRecord(int id, String rushingYards, String passReceptions, String passingYards,
-                      String yardsPerCarry, String receivingYards, String touchdowns,
-                      String tackles, String interceptions, String puntingAverage,
-                      String quarterbackSacks, String fumbleRecoveries, String fieldGoals) {
+    public CareerLeader(int id, String rushingYards, String passReceptions, String passingYards,
+                        String yardsPerCarry, String receivingYards, String touchdowns,
+                        String tackles, String interceptions, String puntingAverage,
+                        String quarterbackSacks, String fumbleRecoveries, String fieldGoals) {
 
         this.id = id;
         this.rushingYards = rushingYards;
@@ -61,7 +61,7 @@ public class GameRecord {
         this.fieldGoals = fieldGoals;
     }
 
-    public GameRecord() {
+    public CareerLeader() {
     }
 
     public int getId() {
