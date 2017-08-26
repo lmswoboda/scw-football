@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${indSingleGameRecords} and ${indSingleGameRecords.size()}">no individual single game records :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Record</th>
+        <th>Opponent</th>
+        <th>Player</th>
+        <th>Year</th>
+
+    </tr>
+
+    <tr th:each=" indSingleGameRecord: ${indSingleGameRecords}">
+        <td th:text="${indSingleGameRecord.title}"></td>
+        <td th:text="${indSingleGameRecord.record}"></td>
+        <td th:text="${indSingleGameRecord.player}"></td>
+        <td th:text="${indSingleGameRecord.opponent}"></td>
+        <td th:text="${indSingleGameRecord.year}"></td>
+
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/indSingleGameRecord/add">Add</a> |
+    <a href="/indSingleGameRecord/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>
