@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${indSingleSeasonRecords} and ${indSingleSeasonRecords.size()}">no Individual Single Season Record  :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Record</th>
+        <th>Opponent</th>
+        <th>Player</th>
+        <th>Year</th>
+
+    </tr>
+
+    <tr th:each=" indSingleSeasonRecord: ${indSingleSeasonRecords}">
+        <td th:text="${indSingleSeasonRecord.issrTitle}"></td>
+        <td th:text="${indSingleSeasonRecord.issrRecord}"></td>
+        <td th:text="${indSingleSeasonRecord.issrPlayer}"></td>
+        <td th:text="${indSingleSeasonRecord.issrYear}"></td>
+
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/indSingleSeasonRecord/add">Add</a> |
+    <a href="/indSingleSeasonRecord/remove">Remove</a>
+</nav>
+
+
+</body>
+</html>

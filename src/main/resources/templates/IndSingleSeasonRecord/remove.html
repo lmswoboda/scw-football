@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${indSingleSeasonRecords} and ${indSingleSeasonRecords.size()}">no Individual Single Season Record :(</p>
+
+<form method="post">
+    <div th:each=" indSingleSeasonRecord: ${indSingleSeasonRecords}" class="checkbox">
+        <input type="checkbox" name="indSingleSeasonRecordIds" th:value="${indSingleSeasonRecord.id}" th:id="${indSingleSeasonRecord.id}"/>
+        <label th:for="${indSingleSeasonRecord.id}" th:text="${indSingleSeasonRecord.issrTitle}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Individual Single Season Record" />
+
+</form>
+
+</body>
+</html>

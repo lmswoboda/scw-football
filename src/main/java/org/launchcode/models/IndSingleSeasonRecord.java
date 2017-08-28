@@ -6,12 +6,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-
 /**
- * Created by lynnstrauss on 8/25/17.
+ * Created by lynnstrauss on 8/28/17.
  */
+
 @Entity
-public class IndSingleGameRecord {
+public class IndSingleSeasonRecord {
+
     @Id
     @GeneratedValue
     private int id;
@@ -20,22 +21,20 @@ public class IndSingleGameRecord {
 
     private int record;
 
-    private String opponent;
-
     private String player;
 
     private int year;
 
-    public IndSingleGameRecord(int id, String title, int record, String opponent, String player, int year) {
+
+    public IndSingleSeasonRecord(int id, String title, int record, String player, int year) {
         this.id = id;
         this.title = title;
         this.record = record;
-        this.opponent = opponent;
         this.player = player;
         this.year = year;
     }
 
-    public IndSingleGameRecord() {
+    public IndSingleSeasonRecord() {
     }
 
     public int getId() {
@@ -58,13 +57,6 @@ public class IndSingleGameRecord {
         this.record = record;
     }
 
-    public String getOpponent() {
-        return opponent;
-    }
-
-    public void setOpponent(String opponent) {
-        this.opponent = opponent;
-    }
 
     public String getPlayer() {
         return player;
@@ -81,5 +73,4 @@ public class IndSingleGameRecord {
     public void setYear(int year) {
         this.year = year;
     }
-
 }

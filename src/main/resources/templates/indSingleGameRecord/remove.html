@@ -7,7 +7,7 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${indSingleGameRecords} and ${indSingleGameRecords.size()}">no players :(</p>
+<p th:unless="${indSingleGameRecords} and ${indSingleGameRecords.size()}">no Individual Single Game Record :(</p>
 
 <form method="post">
     <div th:each=" indSingleGameRecord: ${indSingleGameRecords}" class="checkbox">
