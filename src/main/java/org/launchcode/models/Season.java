@@ -3,6 +3,7 @@ package org.launchcode.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,12 @@ public class Season {
     private int losses;
 
     private String notes;
+
+
+    @OneToMany
+    @JoinColumn(name = "schedule_id")
+    private List<Schedule> schedules = new ArrayList<>();
+
 
     public Season(int id, String year, int wins, int losses, String notes) {
         this.id = id;

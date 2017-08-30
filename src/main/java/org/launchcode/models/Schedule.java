@@ -27,6 +27,9 @@ public class Schedule {
 
     private int awayTeamScore;
 
+    @ManyToOne
+    private Season season;
+
     public Schedule(String week, String homeTeam, int homeTeamScore,
                     String awayTeam, int awayTeamScore) {
         this.week = week;

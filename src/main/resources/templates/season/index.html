@@ -26,7 +26,13 @@
         <td th:text="${season.wins}"></td>
         <td th:text="${season.losses}"></td>
         <td th:text="${season.notes}"></td>
+        <a th: href="'/schedule/season?id=' + ${season.id}" th:text="${season.year}"></a>
 
+        <!--<ul>-->
+        <!--<li th:each="category : ${categories}">-->
+        <!--<a th:href="'/cheese/category?id=' + ${category.id}" th:text="${category.name}"></a>-->
+        <!--</li>-->
+        <!--</ul>-->
 
     </tr>
 
@@ -40,3 +46,4 @@
 
 </body>
 </html>
+

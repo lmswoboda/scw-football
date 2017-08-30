@@ -36,7 +36,7 @@ public class IndSingleSeasonRecordController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddIndSingleSeasonRecordForm(Model model) {
         model.addAttribute("title", "Add Individual Single Season Record");
-        model.addAttribute(new IndSingleSeasonRecordController());
+        model.addAttribute(new IndSingleSeasonRecord());
         return "indSingleSeasonRecord/add";
     }
 
