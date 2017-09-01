@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 /**
@@ -26,7 +27,8 @@ public class ScheduleController {
     @Autowired
     private ScheduleDao scheduleDao;
 
-
+    @Autowired
+    private SeasonDao seasonDao;
 
 //    Request path: /schedule
     @RequestMapping(value = "")
@@ -40,19 +42,23 @@ public class ScheduleController {
     public String displayAddScheduleForm(Model model) {
         model.addAttribute("title", "Add Schedule");
         model.addAttribute(new Schedule());
+        model.addAttribute("seasons", seasonDao.findAll());
         return "schedule/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddScheduleForm(@ModelAttribute @Valid Schedule newSchedule,
-                                       Errors errors,
+                                       Errors errors, @RequestParam int seasonId,
                                        Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Schedule");
+            model.addAttribute("seasons", seasonDao.findAll());
             return "schedule/add";
         }
 
+        Season sea = seasonDao.findOne(seasonId);
+        newSchedule.setSeason(sea);
         scheduleDao.save(newSchedule);
 
         return "redirect:";
@@ -75,6 +81,14 @@ public class ScheduleController {
         return "redirect:";
     }
 
+    @RequestMapping(value = "season", method = RequestMethod.GET)
+    public String season(Model model, @RequestParam int id) {
 
+        Season sea = seasonDao.findOne(id);
+        List<Schedule> schedules = sea.getSchedules();
+        model.addAttribute("schedules", schedules);
+        model.addAttribute("title", "Games in Season " + sea.getYear() );
+        return "schedule/index";
+    }
 
 }

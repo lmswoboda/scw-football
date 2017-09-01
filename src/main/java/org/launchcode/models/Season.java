@@ -26,7 +26,7 @@ public class Season {
 
 
     @OneToMany
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "season_id")
     private List<Schedule> schedules = new ArrayList<>();
 
 
