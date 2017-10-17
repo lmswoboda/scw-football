@@ -25,11 +25,11 @@ import javax.validation.Valid;
 public class SeasonController {
 
     @Autowired
-    private SeasonDao seasonDao;
+    SeasonDao seasonDao;
 
     //    Request path: /season
     @RequestMapping(value = "")
-    public String season(Model model){
+    public String index(Model model){
         model.addAttribute("seasons", seasonDao.findAll());
         model.addAttribute("title", "SCW Football Seasons");
         return "season/index";
@@ -71,10 +71,7 @@ public class SeasonController {
         for (int seasonId : seasonIds) {
             seasonDao.delete(seasonId);
         }
-
         return "redirect:";
     }
-
-
 
 }

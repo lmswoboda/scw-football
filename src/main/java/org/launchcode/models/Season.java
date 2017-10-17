@@ -29,17 +29,19 @@ public class Season {
     @JoinColumn(name = "season_id")
     private List<Schedule> schedules = new ArrayList<>();
 
-
-    public Season(int id, String year, int wins, int losses, String notes) {
+    public Season(int id, String year, int wins, int losses, String notes, List<Schedule> schedules) {
         this.id = id;
         this.year = year;
         this.wins = wins;
         this.losses = losses;
         this.notes = notes;
+        this.schedules = schedules;
     }
 
     public Season() {
     }
+
+
 
     public int getId() {
         return id;
@@ -75,5 +77,13 @@ public class Season {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public List<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 }

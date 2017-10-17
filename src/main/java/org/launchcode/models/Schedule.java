@@ -30,19 +30,17 @@ public class Schedule {
     @ManyToOne
     private Season season;
 
-    public Schedule(String week, String homeTeam, int homeTeamScore,
-                    String awayTeam, int awayTeamScore) {
+
+    public Schedule(int id, String week, String homeTeam, int homeTeamScore, String awayTeam,
+                    int awayTeamScore, Season season) {
+        this.id = id;
         this.week = week;
         this.homeTeam = homeTeam;
         this.homeTeamScore = homeTeamScore;
         this.awayTeam = awayTeam;
         this.awayTeamScore = awayTeamScore;
+        this.season = season;
     }
-
-//    public Schedule(int week, String homeTeam,
-//                    String awayTeam) {
-//        this(week, homeTeam, awayTeam);
-//    }
 
     public Schedule() {
     }
@@ -91,6 +89,13 @@ public class Schedule {
         this.week = week;
     }
 
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
+    }
 }
 
 

@@ -25,14 +25,14 @@ import java.util.List;
 public class ScheduleController {
 
     @Autowired
-    private ScheduleDao scheduleDao;
+    ScheduleDao scheduleDao;
 
     @Autowired
-    private SeasonDao seasonDao;
+    SeasonDao seasonDao;
 
 //    Request path: /schedule
     @RequestMapping(value = "")
-    public String schedule(Model model){
+    public String index(Model model){
         model.addAttribute("schedules", scheduleDao.findAll());
         model.addAttribute("title", "SCW Football Schedule");
         return "schedule/index";
@@ -40,7 +40,7 @@ public class ScheduleController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddScheduleForm(Model model) {
-        model.addAttribute("title", "Add Schedule");
+        model.addAttribute("title", "Add Game");
         model.addAttribute(new Schedule());
         model.addAttribute("seasons", seasonDao.findAll());
         return "schedule/add";
@@ -87,7 +87,7 @@ public class ScheduleController {
         Season sea = seasonDao.findOne(id);
         List<Schedule> schedules = sea.getSchedules();
         model.addAttribute("schedules", schedules);
-        model.addAttribute("title", "Games in Season " + sea.getYear() );
+        model.addAttribute("title", "Games in Season " + sea.getId() );
         return "schedule/index";
     }
 
