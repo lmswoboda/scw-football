@@ -22,11 +22,10 @@
     </tr>
 
     <tr th:each="season : ${seasons}">
-        <td th:text="${season.year}"></td>
+        <td><a th:href="'/schedule/season?id=' + ${season.id}" th:text="${season.year}"></a></td>
         <td th:text="${season.wins}"></td>
         <td th:text="${season.losses}"></td>
         <td th:text="${season.notes}"></td>
-        <td><a th:href="'/schedule/season?id=' + ${season.id}" th:text="${season.year}"></a></td>
 
 
 

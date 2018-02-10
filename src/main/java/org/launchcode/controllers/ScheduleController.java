@@ -87,7 +87,7 @@ public class ScheduleController {
         Season sea = seasonDao.findOne(id);
         List<Schedule> schedules = sea.getSchedules();
         model.addAttribute("schedules", schedules);
-        model.addAttribute("title", "Games in Season " + sea.getId() );
+        model.addAttribute("title", "Games in " + sea.getYear() + " Season");
         return "schedule/index";
     }
 
