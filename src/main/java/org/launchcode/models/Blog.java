@@ -17,10 +17,10 @@ public class Blog {
     @GeneratedValue
     private int id;
 
-    @NotNull(message="Title may not me empty.")
+    @NotNull(message="Title may not be empty.")
     private String title;
 
-    @NotNull(message="Body may not me empty.")
+    @NotNull(message="Body may not be empty.")
     private String body;
 
     public Blog(int id, String title, String body) {
