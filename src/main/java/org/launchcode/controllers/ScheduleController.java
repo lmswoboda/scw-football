@@ -31,33 +31,37 @@ public class ScheduleController {
     SeasonDao seasonDao;
 
 //    Request path: /schedule
-    @RequestMapping(value = "")
-    public String index(Model model){
+    @RequestMapping(value = "",method = RequestMethod.GET)
+    public String index(Model model, @RequestParam int id){
         model.addAttribute("schedules", scheduleDao.findAll());
         model.addAttribute("title", "SCW Football Schedule");
+        model.addAttribute("seasons", seasonDao.findAll());
+        model.addAttribute("seasonId", id);
         return "schedule/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String displayAddScheduleForm(Model model) {
+    public String displayAddScheduleForm(Model model, @RequestParam int id) {
         model.addAttribute("title", "Add Game");
         model.addAttribute(new Schedule());
         model.addAttribute("seasons", seasonDao.findAll());
+        model.addAttribute("seasonId", id);
         return "schedule/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddScheduleForm(@ModelAttribute @Valid Schedule newSchedule,
-                                       Errors errors, @RequestParam int seasonId,
+                                       Errors errors, @RequestParam int id,
                                        Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Schedule");
             model.addAttribute("seasons", seasonDao.findAll());
+            model.addAttribute("seasonId", id);
             return "schedule/add";
         }
 
-        Season sea = seasonDao.findOne(seasonId);
+        Season sea = seasonDao.findOne(id);
         newSchedule.setSeason(sea);
         scheduleDao.save(newSchedule);
 
