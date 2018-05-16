@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -41,7 +38,8 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String displayAddScheduleForm(Model model, @RequestParam int id) {
+    public String displayAddScheduleForm(Model model,
+                                         @RequestParam int id) {
         model.addAttribute("title", "Add Game");
         model.addAttribute(new Schedule());
         model.addAttribute("seasons", seasonDao.findAll());
@@ -65,7 +63,8 @@ public class ScheduleController {
         newSchedule.setSeason(sea);
         scheduleDao.save(newSchedule);
 
-        return "redirect:";
+//        return "redirect:/query?q=Thymeleaf+Is+Great!";
+        return "redirect:/schedule/season?id="+id;
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.GET)
@@ -92,6 +91,7 @@ public class ScheduleController {
         List<Schedule> schedules = sea.getSchedules();
         model.addAttribute("schedules", schedules);
         model.addAttribute("title", sea.getYear() + " Schedule");
+        model.addAttribute("seasonId", id);
         return "schedule/index";
     }
 
