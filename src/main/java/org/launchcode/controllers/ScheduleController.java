@@ -40,9 +40,11 @@ public class ScheduleController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddScheduleForm(Model model,
                                          @RequestParam int id) {
-        model.addAttribute("title", "Add Game");
+//        model.addAttribute("title", "Add Game");
+        Season sea = seasonDao.findOne(id);
         model.addAttribute(new Schedule());
-        model.addAttribute("seasons", seasonDao.findAll());
+//        model.addAttribute("seasons", seasonDao.findAll());
+        model.addAttribute("title", sea.getYear() + " Schedule");
         model.addAttribute("seasonId", id);
         return "schedule/add";
     }
@@ -68,9 +70,13 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.GET)
-    public String displayRemoveScheduleForm(Model model) {
+    public String displayRemoveScheduleForm(Model model,
+                                            @RequestParam int id) {
         model.addAttribute("schedules", scheduleDao.findAll());
         model.addAttribute("title", "Remove Schedule");
+        Season sea = seasonDao.findOne(id);
+        model.addAttribute("title", sea.getYear() + " Schedule");
+        model.addAttribute("seasonId", id);
         return "schedule/remove";
     }
 
