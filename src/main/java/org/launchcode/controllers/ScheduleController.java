@@ -72,13 +72,28 @@ public class ScheduleController {
     @RequestMapping(value = "remove", method = RequestMethod.GET)
     public String displayRemoveScheduleForm(Model model,
                                             @RequestParam int id) {
-        model.addAttribute("seasons", seasonDao.findAll());
-        model.addAttribute("schedules", scheduleDao.findAll());
         Season sea = seasonDao.findOne(id);
+        List<Schedule> schedules = sea.getSchedules();
+        model.addAttribute("schedules", schedules);
         model.addAttribute("title", sea.getYear() + " Remove Game");
-
         model.addAttribute("seasonId", id);
         return "schedule/remove";
+
+
+
+
+
+//        Season sea = seasonDao.findOne(id);
+//        model.addAttribute("seasons", seasonDao.findOne(id));
+//        model.addAttribute("schedules", scheduleDao.findAll());
+
+//
+//        model.addAttribute("seasonId", id);
+//        return "schedule/remove";
+//
+
+
+
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)

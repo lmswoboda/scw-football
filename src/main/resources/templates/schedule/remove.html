@@ -9,6 +9,10 @@
 
 <p th:unless="${schedules} and ${schedules.size()}">no schedules :(</p>
 
+
+
+
+original schedule remove
 <form method="post">
     <div th:each="schedule : ${schedules}" class="checkbox">
         <input type="checkbox" name="scheduleIds" th:value="${schedule.id}" th:id="${schedule.id}"/>
