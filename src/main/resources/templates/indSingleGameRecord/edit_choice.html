@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${indSingleGameRecords} and ${indSingleGameRecords.size()}">no Individual Single Game Record :(</p>
+
+<form method="post">
+    <div th:each=" indSingleGameRecord: ${indSingleGameRecords}" class="checkbox">
+        <input type="checkbox" name="indSingleGameRecordIds" th:value="${indSingleGameRecord.id}" th:id="${indSingleGameRecord.id}"/>
+        <label th:for="${indSingleGameRecord.id}" th:text="${indSingleGameRecord.title}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Edit Individual Single Game Record" />
+
+</form>
+
+</body>
+</html>

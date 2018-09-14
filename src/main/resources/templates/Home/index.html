@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<!--<div id="header">-->
+
+    <!--<div id="logo"><img src="https://www.mshsaa.org/Resources/UploadedFiles/Logos/St._Charles_West_High_School_Boys634229868929966602.jpg" /></div>-->
+
+
+    <!--<div id="links">-->
+        <!--<ul>-->
+            <!--<li><a href= "https://www.stcharlessd.org/scw" >SCW School Website Link</a></li>-->
+            <!--<li><a href= "https://www.stcharlessd.org/Page/1015">SCW School Football Website Link</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+<!--</div>-->
+<!--<div id="banner">-->
+    <!--St. Charles West Football-->
+
+<!--</div>-->
+<nav>
+    <a href="/season">Seasons</a> |
+    <a href="/schedule">Schedules</a> |
+    <a href="/roster">Players</a> |
+    <a href="/blog">Blog</a> |
+    <a href="/careerLeader">Career Leaders</a> |
+    <a href="/indSingleGameRecord">Individual Single Game Records</a> |
+    <a href="/indSingleSeasonRecord">Individual Single Season Records</a> |
+
+</nav>
+
+
+</body>
+</html>

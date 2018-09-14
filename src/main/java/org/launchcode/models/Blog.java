@@ -1,10 +1,7 @@
 package org.launchcode.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.List;
 
 
 /**
@@ -50,6 +47,12 @@ public class Blog {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    /**
+     * Created by lynnstrauss on 8/21/18.
+     */
+    public static class Home {
     }
 }
 

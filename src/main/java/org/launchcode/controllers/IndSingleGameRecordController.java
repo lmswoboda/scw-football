@@ -69,10 +69,26 @@ public class IndSingleGameRecordController {
 
         for (int indSingleGameRecordId : indSingleGameRecordIds) {
             indSingleGameRecordDao.delete(indSingleGameRecordId);
-        }
+           }
 
         return "redirect:";
     }
+
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String displayEditIndSingleGameRecordForm(Model model) {
+        model.addAttribute("indSingleGameRecords", indSingleGameRecordDao.findAll());
+        model.addAttribute("title", "Edit Individual Single Game Record");
+        return "indSingleGameRecord/edit_choice";
+
+    }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String processIndSingleGameRecordForm(@RequestParam int[] indSingleGameRecordIds) {
+
+
+        return "indSingleGameRecord/edit";
+    }
+
 
 
 }

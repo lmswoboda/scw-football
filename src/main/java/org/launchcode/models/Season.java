@@ -29,13 +29,18 @@ public class Season {
     @JoinColumn(name = "season_id")
     private List<Schedule> schedules = new ArrayList<>();
 
-    public Season(int id, String year, int wins, int losses, String notes, List<Schedule> schedules) {
+    @OneToMany
+    @JoinColumn(name = "season_id")
+    private List<Roster> rosters = new ArrayList<>();
+
+    public Season(int id, String year, int wins, int losses, String notes, List<Schedule> schedules, List<Roster> rosters) {
         this.id = id;
         this.year = year;
         this.wins = wins;
         this.losses = losses;
         this.notes = notes;
         this.schedules = schedules;
+        this.rosters = rosters;
     }
 
     public Season() {
@@ -85,5 +90,13 @@ public class Season {
 
     public void setSchedules(List<Schedule> schedules) {
         this.schedules = schedules;
+    }
+
+    public List<Roster> getRosters() {
+        return rosters;
+    }
+
+    public void setRosters(List<Roster> rosters) {
+        this.rosters = rosters;
     }
 }

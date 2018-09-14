@@ -24,6 +24,7 @@
         <th>Defensive</th>
         <th>Special Teams</th>
         <th>Note</th>
+        <th>Year</th>
 
     </tr>
 
@@ -39,15 +40,17 @@
         <td th:text="${roster.defensivePosition}"></td>
         <td th:text="${roster.specialTeams}"></td>
         <td th:text="${roster.playerNote}"></td>
+        <!--<td th:text="${roster.season.year}"></td>-->
+
     </tr>
 
 </table>
 
-<nav>
-    <a href="/roster/add">Add</a> |
-    <a href="/roster/remove">Remove</a>
-</nav>
 
+<nav>
+    <a th:href="@{/roster/add(id=${seasonId})}">Add Players</a> |
+    <a th:href="@{/roster/remove(id=${seasonId})}">Remove Players</a>
+</nav>
 
 </body>
 </html>

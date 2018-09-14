@@ -41,9 +41,12 @@ public class Roster {
 
     private String playerNote;
 
+    @ManyToOne
+    private Season season;
+
     public Roster(int id, String player, int number, String playerClass, int feet,
                   int inches, int weight, String offensivePosition, String defensivePosition,
-                  String specialTeams, String playerNote) {
+                  String specialTeams, String playerNote, Season season) {
 
         this.id = id;
         this.player = player;
@@ -56,6 +59,7 @@ public class Roster {
         this.defensivePosition = defensivePosition;
         this.specialTeams = specialTeams;
         this.playerNote = playerNote;
+        this.season = season;
     }
 
     public Roster() {
@@ -143,5 +147,13 @@ public class Roster {
 
     public void setPlayerNote(String playerNote) {
         this.playerNote = playerNote;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
     }
 }

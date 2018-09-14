@@ -19,7 +19,7 @@
         <th>Home Score</th>
         <th>Visitor</th>
         <th>Visitor Score</th>
-        <th>Year</th>
+        <!--<th>Year</th>-->
 
     </tr>
 
@@ -30,15 +30,48 @@
         <td th:text="${schedule.homeTeamScore}"></td>
         <td th:text="${schedule.awayTeam}"></td>
         <td th:text="${schedule.awayTeamScore}"></td>
-        <td th:text="${schedule.season.year}"></td>
+        <!--<td th:text="${schedule.season.year}"></td>-->
     </tr>
 
 </table>
 
+<!--<table class="table">-->
+
+    <!--<tr>-->
+        <!--<th>Number</th>-->
+        <!--<th>Player</th>-->
+        <!--<th>Class</th>-->
+        <!--<th>Feet</th>-->
+        <!--<th>Inches</th>-->
+        <!--<th>Weight</th>-->
+        <!--<th>Offense</th>-->
+        <!--<th>Defensive</th>-->
+        <!--<th>Special Teams</th>-->
+        <!--<th>Note</th>-->
+
+    <!--</tr>-->
+
+
+    <!--<tr th:each="roster : ${rosters}">-->
+        <!--<td th:text="${roster.number}"></td>-->
+        <!--<td th:text="${roster.player}"></td>-->
+        <!--<td th:text="${roster.playerClass}"></td>-->
+        <!--<td th:text="${roster.feet}"></td>-->
+        <!--<td th:text="${roster.inches}"></td>-->
+        <!--<td th:text="${roster.weight}"></td>-->
+        <!--<td th:text="${roster.offensivePosition}"></td>-->
+        <!--<td th:text="${roster.defensivePosition}"></td>-->
+        <!--<td th:text="${roster.specialTeams}"></td>-->
+        <!--<td th:text="${roster.playerNote}"></td>-->
+    <!--</tr>-->
+
+<!--</table>-->
+
 <nav>
     <!--<a th:href="@{/order/details(id=3)}">-->
-    <a th:href="@{/schedule/add(id=${seasonId})}">Add</a> |
-    <a th:href="@{/schedule/remove(id=${seasonId})}">Remove</a>
+    <a th:href="@{/schedule/add(id=${seasonId})}">Add Game</a> |
+    <a th:href="@{/schedule/remove(id=${seasonId})}">Remove Game</a> |
+
 </nav>
 
 

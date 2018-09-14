@@ -29,17 +29,16 @@ public class ScheduleController {
 
 //    Request path: /schedule
     @RequestMapping(value = "",method = RequestMethod.GET)
-    public String index(Model model, @RequestParam int id){
+    public String index(Model model){
         model.addAttribute("schedules", scheduleDao.findAll());
-        model.addAttribute("title", "SCW Football Schedule");
-        model.addAttribute("seasons", seasonDao.findAll());
-        model.addAttribute("seasonId", id);
+        model.addAttribute("title", "SCW Football Schedules");
+//        model.addAttribute("seasons", seasonDao.findAll());
+//        model.addAttribute("seasonId", id);
         return "schedule/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String displayAddScheduleForm(Model model,
-                                         @RequestParam int id) {
+    public String displayAddScheduleForm(Model model, @RequestParam int id) {
 //        model.addAttribute("title", "Add Game");
         Season sea = seasonDao.findOne(id);
         model.addAttribute(new Schedule());
