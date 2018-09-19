@@ -74,22 +74,30 @@ public class IndSingleGameRecordController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "edit", method = RequestMethod.GET)
-    public String displayEditIndSingleGameRecordForm(Model model) {
+    @RequestMapping(value = "edit_choice", method = RequestMethod.GET)
+    public String displayEditIndSingleGameRecordChoice(Model model) {
         model.addAttribute("indSingleGameRecords", indSingleGameRecordDao.findAll());
         model.addAttribute("title", "Edit Individual Single Game Record");
         return "indSingleGameRecord/edit_choice";
 
     }
 
-    @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String processIndSingleGameRecordForm(@RequestParam int[] indSingleGameRecordIds) {
+    @RequestMapping(value = "edit_choice", method = RequestMethod.POST)
+    public String processEditIndSingleGameRecordChoice(Model model, @RequestParam int id,
+                                                       int[] indSingleGameRecordId) {
+  {
+            IndSingleGameRecord indSingleGameRecord = indSingleGameRecordDao.findOne(id);
+        }
+        return "redirect:indSingleGameRecord/edit?id="+id;
 
-
-        return "indSingleGameRecord/edit";
     }
 
-
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String displayEditIndSingleGameRecordForm(Model model){
+        model.addAttribute("title", "Edit Individual Single Game Record");
+        model.addAttribute(new IndSingleGameRecord());
+        return "indSingleGameRecord/edit";
+    }
 
 }
 

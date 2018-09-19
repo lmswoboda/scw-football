@@ -75,7 +75,7 @@ public class RosterController {
         model.addAttribute("seasonId", id);
         return "roster/remove";
     }
-    
+
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveRosterForm(@RequestParam int[] rosterIds, int id) {
